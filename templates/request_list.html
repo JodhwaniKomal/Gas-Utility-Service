@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Track Requests</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: SlateBlue;
+            color: white;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            margin: 50px auto;
+            padding: 20px;
+            max-width: 500px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: yellow;
+            color: black;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        .btn:hover {
+            background-color: gold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Track Service Requests</h1>
+        <ul>
+            {% for request in requests %}
+                <li><strong>{{ request.name }}</strong> - {{ request.request_type }} - <b>{{ request.status }}</b></li>
+            {% empty %}
+                <li>No service requests found.</li>
+            {% endfor %}
+        </ul>
+
+        <!-- Back to Home Button -->
+        <a href="{% url 'home' %}" class="btn">⬅ Back to Home</a>
+    </div>
+
+</body>
+</html>
